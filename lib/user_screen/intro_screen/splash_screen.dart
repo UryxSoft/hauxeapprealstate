@@ -27,8 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 3, 98,
-          176), // Ajusta el color de fondo como en la imagen proporcionada
+      backgroundColor: Color(
+          0xFF0064E5), // Ajusta el color de fondo como en la imagen proporcionada
       body: Center(
         child: Container(
           width: size.width * 0.9, // Ajusta el tamaño del logo
