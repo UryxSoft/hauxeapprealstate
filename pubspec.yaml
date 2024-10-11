@@ -49,6 +49,7 @@ flutter:
     - assets/intro_screen/hauxe.png
     - lib/l10n/
     - assets/house.jpg
+    - assets/images/
   # fonts:
   #   - family: Schyler
   #     fonts:

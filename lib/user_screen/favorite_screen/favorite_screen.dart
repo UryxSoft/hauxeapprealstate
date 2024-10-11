@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../user_screen/home_screen/seller_screen.dart';
+import '../../virtual_tour/virtual_tour.dart';
 
 class CardList extends StatelessWidget {
   final List<PropertyCard> propertyCards = [
@@ -256,8 +258,7 @@ class PropertyDetailsScreen extends StatelessWidget {
             Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0), // Padding agregado
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(16.0),
                     child: Image.asset(
@@ -303,6 +304,7 @@ class PropertyDetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
+
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
@@ -319,9 +321,19 @@ class PropertyDetailsScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 16),
-                  Text(
-                    "Owner: ${propertyCard.owner}",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserProfilePage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Owner: ${propertyCard.owner}",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                   SizedBox(height: 16),
                   Text(
@@ -353,7 +365,6 @@ class PropertyDetailsScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 16),
-                  // Mover el precio aquí, debajo de la galería
                   Text(
                     propertyCard.price,
                     style: TextStyle(
@@ -374,6 +385,86 @@ class PropertyDetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
+            // Nuevo bloque de código insertado aquí
+            Column(
+              children: [
+                Stack(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 6.0, right: 6.0),
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: FittedBox(
+                            child: Image.asset(
+                              "assets/images/house.jpg",
+                              fit: BoxFit.cover,
+                              height: MediaQuery.of(context).size.height * 0.4,
+                              width: MediaQuery.of(context).size.width,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 0,
+                      right: 0,
+                      top: MediaQuery.of(context).size.height * 0.31,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const VirtualScreen()),
+                          );
+                        },
+                        child: Center(
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                                horizontal:
+                                    MediaQuery.of(context).size.width * 0.28),
+                            decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(15)),
+                            height: MediaQuery.of(context).size.height * 0.04,
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                  ),
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.03,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.1,
+                                  child: const Center(
+                                    child: Icon(
+                                      Icons.photo,
+                                      color: Colors.black,
+                                      size: 18,
+                                    ),
+                                  ),
+                                ),
+                                const Text(
+                                  "Virtual 3D Tour",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            // Fin del nuevo bloque
           ],
         ),
       ),
