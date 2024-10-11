@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:stacked_notification_cards/stacked_notification_cards.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyNotifyPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyNotifyPageState createState() => _MyNotifyPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyNotifyPageState extends State<MyNotifyPage> {
   List<NotificationCard> _listOfNotification = [
     NotificationCard(
       date: DateTime.now(),
@@ -68,9 +68,28 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Stacked Notification Card',
+          style: TextStyle(color: Colors.blue), // Color del texto del título
         ),
+        backgroundColor: Colors.white, // Color de fondo del AppBar
+        iconTheme: IconThemeData(color: Colors.blue), // Color de los íconos
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back), // Flecha de retorno
+          onPressed: () {
+            Navigator.pop(context); // Acción para volver atrás
+          },
+          iconSize: 30.0,
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications), // Ícono de campana
+            onPressed: () {
+              // Acción al presionar la campana
+            },
+            iconSize: 30.0,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -85,9 +104,9 @@ class _MyHomePageState extends State<MyHomePage> {
               notificationCardTitle: 'Message',
               notificationCards: [..._listOfNotification],
               cardColor: const Color(0xFFF1F1F1),
-              padding: 16,
+              padding: 10,
               actionTitle: const Text(
-                'Notifications',
+                '',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -98,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
+                  color: Colors.blue,
                 ),
               ),
               onTapClearAll: () {
@@ -111,7 +130,6 @@ class _MyHomePageState extends State<MyHomePage> {
               cardClearButton: const Text('clear'),
               cardViewButton: const Text('view'),
               onTapClearCallback: (index) {
-                print(index);
                 setState(() {
                   _listOfNotification.removeAt(index);
                 });

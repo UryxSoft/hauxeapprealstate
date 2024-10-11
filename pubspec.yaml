@@ -21,6 +21,8 @@ dependencies:
   bottom_navy_bar: ^6.0.0
   contained_tab_bar_view_with_custom_page_navigator: ^0.1.3
   stacked_notification_cards: ^0.1.0-dev.5
+  flutter_settings_ui: ^3.0.0
+  babstrap_settings_screen: ^0.1.7
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
@@ -46,6 +48,7 @@ flutter:
     - assets/intro_screen/icon.png
     - assets/intro_screen/hauxe.png
     - lib/l10n/
+    - assets/house.jpg
   # fonts:
   #   - family: Schyler
   #     fonts:

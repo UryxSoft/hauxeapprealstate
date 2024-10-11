@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color(
+      backgroundColor: const Color(
           0xFF0064E5), // Ajusta el color de fondo como en la imagen proporcionada
       body: Center(
         child: Container(

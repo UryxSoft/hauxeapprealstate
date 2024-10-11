@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import '../../user_screen/home_screen/home_screen2.dart';
+import '../../user_screen/profile_screen/profile_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   final Duration duration = const Duration(milliseconds: 400);
@@ -277,8 +278,7 @@ class SButton extends StatelessWidget {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: ((context) =>
-                const MyBottomNavyBar()), //const SignInScreen()),
+            builder: ((context) => MyBottomNavyBar()), //const SignInScreen()),
           ),
         );
       },
